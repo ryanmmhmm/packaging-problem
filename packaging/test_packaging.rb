@@ -27,4 +27,12 @@ class TestPackaging < MiniTest::Test
     assert_equal(1299.99, @input1.format_cost)
   end
 
+  def test_that_people_is_string
+    assert_equal("3 people", @input1.people)
+  end
+
+  def test_that_people_is_integer
+    assert_equal(3, @input1.format_people)
+  end
+
 end
