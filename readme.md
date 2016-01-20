@@ -11,6 +11,8 @@ This program was developing using minitest TDD methodologies and tests can be ru
 
 All required files to run this program are included in the repo.
 
+run `rake` from the command line to run the tests for the program.
+
 # About the Program:
 This is a program designed to recieve input in sets in strings with the form of:
 
