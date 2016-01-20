@@ -7,7 +7,7 @@ uses rake & minitest to run tests
 Please run bundle from root of repo to install rake and minitest
 
 # Tests:
-This program was developing using minitest TDD methodologies and tests can be run using the  > rake command in the root directory of the repository.
+This program was developing using minitest TDD methodologies.
 
 All required files to run this program are included in the repo.
 
@@ -40,5 +40,7 @@ The output of this program will provide the user with a pricing estimate for the
 # Assumptions:
 * All currency is in CAD denoted by a $
 * All input is recieved in the form of strings for corresponding keys and must be parsed by the program
-
-
+* Each attribute input (string) must be passed through a filter to ensure that the format of the input can be managed by the program, in the case that poorly formatted input is provided.
+* The cost attribute will always be referenced as a floating point number with two decimals
+* The people attribute will always be referenced as an integer
+* The property_type attribute will always be all lowercase and will have no spaces
