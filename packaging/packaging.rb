@@ -27,7 +27,7 @@ class Quote
   def remove_letters(input)
     if input.is_a?(String)
       input.downcase!
-      input.lstrip!
+      input.tr!(' ','')
       input.tr!('a-z','')
     end
 
@@ -40,7 +40,7 @@ class Quote
   end
 
   def format_product_type
-    self.product_type.lstrip!
+    self.product_type.tr!(' ','')
     self.product_type.downcase!
     return self.product_type
   end

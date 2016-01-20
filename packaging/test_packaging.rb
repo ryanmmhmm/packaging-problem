@@ -8,7 +8,7 @@ class TestPackaging < MiniTest::Test
 
     @input2 = Quote.new("$5432.00","1  PERson","DRUGS")
 
-    @input3 = Quote.new("$12456.95","4 people","Books")
+    @input3 = Quote.new("$12456.95","4 people","Bo oks")
   end
 
   def test_that_input1_has_formatted_attr
