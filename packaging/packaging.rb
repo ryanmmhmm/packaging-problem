@@ -37,4 +37,10 @@ class Quote
     self.people = self.people.to_i
   end
 
+  def format_product_type
+    self.product_type.lstrip!
+    self.product_type.downcase!
+    return self.product_type
+  end
+
 end
