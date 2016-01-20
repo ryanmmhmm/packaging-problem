@@ -15,4 +15,16 @@ class TestPackaging < MiniTest::Test
     assert_equal("food", @input1.product_type)
   end
 
+  def test_that_cost_is_string
+    assert_kind_of(String, @input1.cost)
+  end
+
+  def test_that_cost_has_dollar_sign
+    assert_equal("$", @input1.cost[0])
+  end
+
+  def test_that_cost_is_float
+    assert_equal(1299.99, @input1.format_cost)
+  end
+
 end
