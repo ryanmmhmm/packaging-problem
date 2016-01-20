@@ -39,4 +39,8 @@ class TestPackaging < MiniTest::Test
     assert_kind_of(String, @input1.product_type)
   end
 
+  def test_that_product_type_is_lowercase
+    assert_equal("food", @input1.format_product_type)
+  end
+
 end
