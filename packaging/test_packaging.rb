@@ -35,4 +35,8 @@ class TestPackaging < MiniTest::Test
     assert_equal(3, @input1.format_people)
   end
 
+  def test_that_product_type_is_string
+    assert_kind_of(String, @input1.product_type)
+  end
+
 end
