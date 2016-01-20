@@ -5,6 +5,8 @@ class Quote
     @cost = cost
     @people = people
     @product_type = product_type
+
+    self.format_attributes
   end
 
   def remove_dollar_sign(input)
@@ -47,6 +49,15 @@ class Quote
     self.cost = self.format_cost
     self.people = self.format_people
     self.product_type = self.format_product_type
+  end
+end
+
+
+class Price
+
+  def initialize
+    @base_markup = 0.05
+    @manpower_markup = 0.012
   end
 
 end

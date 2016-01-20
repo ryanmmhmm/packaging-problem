@@ -5,13 +5,10 @@ class TestPackaging < MiniTest::Test
 
   def setup
     @input1 = Quote.new("$1299.99","3 people","FooD")
-    @input1.format_attributes
 
     @input2 = Quote.new("$5432.00","1  PERson","DRUGS")
-    @input2.format_attributes
 
     @input3 = Quote.new("$12456.95","4 people","Books")
-    @input3.format_attributes
   end
 
   def test_that_input1_has_formatted_attr
