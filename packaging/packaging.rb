@@ -22,4 +22,19 @@ class Quote
     self.cost = self.cost.to_f
   end
 
+  def remove_letters(input)
+    if input.is_a?(String)
+      input.downcase!
+      input.lstrip!
+      input.tr!('a-z','')
+    end
+
+    return input
+  end
+
+  def format_people
+    self.people = remove_letters(self.people)
+    self.people = self.people.to_i
+  end
+
 end
