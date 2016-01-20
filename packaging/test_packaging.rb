@@ -5,7 +5,7 @@ class TestPackaging < MiniTest::Test
 
   def setup
     @input1 = Quote.new("$1299.99","3 people","food")
-    @input2 = Quote.new("$5432.00","1 person","drugs")
+    @input2 = Quote.new("$5432.00","1  PERson","DRUGS")
     @input3 = Quote.new("$12456.95","4 people","books")
   end
 
@@ -16,31 +16,31 @@ class TestPackaging < MiniTest::Test
   end
 
   def test_that_cost_is_string
-    assert_kind_of(String, @input1.cost)
+    assert_kind_of(String, @input2.cost)
   end
 
   def test_that_cost_has_dollar_sign
-    assert_equal("$", @input1.cost[0])
+    assert_equal("$", @input2.cost[0])
   end
 
   def test_that_cost_is_float
-    assert_equal(1299.99, @input1.format_cost)
+    assert_equal(5432.00, @input2.format_cost)
   end
 
   def test_that_people_is_string
-    assert_equal("3 people", @input1.people)
+    assert_kind_of(String, @input2.people)
   end
 
-  def test_that_people_is_integer
-    assert_equal(3, @input1.format_people)
+  def test_that_format_people_is_integer
+    assert_equal(1, @input2.format_people)
   end
 
   def test_that_product_type_is_string
-    assert_kind_of(String, @input1.product_type)
+    assert_kind_of(String, @input2.product_type)
   end
 
-  def test_that_product_type_is_lowercase
-    assert_equal("food", @input1.format_product_type)
+  def test_that_format_product_type_is_lowercase
+    assert_equal("drugs", @input2.format_product_type)
   end
 
 end
