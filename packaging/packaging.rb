@@ -43,4 +43,10 @@ class Quote
     return self.product_type
   end
 
+  def format_attributes
+    self.cost = self.format_cost
+    self.people = self.format_people
+    self.product_type = self.format_product_type
+  end
+
 end
