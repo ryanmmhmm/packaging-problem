@@ -1,16 +1,18 @@
 
-Alt-H1 Requirements:
+# Requirements:
 
 built using ruby 2.2.3p173
 uses rake & minitest to run tests
 
-Tests:  This program was developing using minitest TDD methodologies and tests can be run using the  > rake command in the root directory of the repository.
+Please run bundle from root of repo to install rake and minitest
+
+# Tests:
+This program was developing using minitest TDD methodologies and tests can be run using the  > rake command in the root directory of the repository.
 
 All required files to run this program are included in the repo.
 
 
-
-
+# About the Program
 This is a program designed to recieve input in sets in the form of:
 
 1) base cost($)
