@@ -4,43 +4,32 @@ require 'packaging.rb'
 class TestPackaging < MiniTest::Test
 
   def setup
-    @input1 = Quote.new("$1299.99","3 people","food")
+    @input1 = Quote.new("$1299.99","3 people","FooD")
+    @input1.format_attributes
+
     @input2 = Quote.new("$5432.00","1  PERson","DRUGS")
-    @input3 = Quote.new("$12456.95","4 people","books")
+    @input2.format_attributes
+
+    @input3 = Quote.new("$12456.95","4 people","Books")
+    @input3.format_attributes
   end
 
-  def test_that_input_has_matching_attr
-    assert_equal("$1299.99", @input1.cost)
-    assert_equal("3 people", @input1.people)
+  def test_that_input1_has_formatted_attr
+    assert_equal(1299.99, @input1.cost)
+    assert_equal(3, @input1.people)
     assert_equal("food", @input1.product_type)
   end
 
-  def test_that_cost_is_string
-    assert_kind_of(String, @input2.cost)
+  def test_that_input2_has_formatted_attr
+    assert_equal(5432.00, @input2.cost)
+    assert_equal(1, @input2.people)
+    assert_equal("drugs", @input2.product_type)
   end
 
-  def test_that_cost_has_dollar_sign
-    assert_equal("$", @input2.cost[0])
-  end
-
-  def test_that_cost_is_float
-    assert_equal(5432.00, @input2.format_cost)
-  end
-
-  def test_that_people_is_string
-    assert_kind_of(String, @input2.people)
-  end
-
-  def test_that_format_people_is_integer
-    assert_equal(1, @input2.format_people)
-  end
-
-  def test_that_product_type_is_string
-    assert_kind_of(String, @input2.product_type)
-  end
-
-  def test_that_format_product_type_is_lowercase
-    assert_equal("drugs", @input2.format_product_type)
+  def test_that_input3_has_formatted_attr
+    assert_equal(12456.95, @input3.cost)
+    assert_equal(4, @input3.people)
+    assert_equal("books", @input3.product_type)
   end
 
 end
