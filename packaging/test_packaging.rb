@@ -4,11 +4,11 @@ require 'packaging.rb'
 class TestPackaging < MiniTest::Test
 
   def setup
-    @input1 = Quote.new("$1299.99","3 people","FooD")
+    @input1 = Quote.new("$1299.99","3 people","FooD", Price.new)
 
-    @input2 = Quote.new("$5432.00","1  PERson","DRUGS")
+    @input2 = Quote.new("$5432.00","1  PERson","DRUGS", Price.new)
 
-    @input3 = Quote.new("$12456.95"," 4 people","Bo oks")
+    @input3 = Quote.new("$12456.95"," 4 people","Bo oks", Price.new)
   end
 
   def test_that_input1_has_formatted_attr
