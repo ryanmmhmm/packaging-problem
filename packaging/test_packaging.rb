@@ -33,4 +33,8 @@ class TestPackaging < MiniTest::Test
     assert_equal(0.05, @input1.price.base_markup)
   end
 
+  def test_that_input_has_manpower_markup_association
+    assert_equal(0.012, @input1.price.manpower_markup)
+  end
+
 end
