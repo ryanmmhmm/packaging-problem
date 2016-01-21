@@ -2,7 +2,7 @@ class Quote
   attr_accessor :cost, :people, :product_type
   attr_reader :price
 
-  def initialize(cost, people, product_type, price)
+  def initialize(cost, people, product_type, price = Price.new)
     @cost = cost
     @people = people
     @product_type = product_type

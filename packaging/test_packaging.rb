@@ -4,11 +4,11 @@ require 'packaging.rb'
 class TestPackaging < MiniTest::Test
 
   def setup
-    @input1 = Quote.new("$1299.99","3 people","FooD", Price.new)
+    @input1 = Quote.new("$1299.99","3 people","FooD")
 
-    @input2 = Quote.new("$5432.00","1  PERson","DRUGS", Price.new)
+    @input2 = Quote.new("$5432.00","1  PERson","DRUGS")
 
-    @input3 = Quote.new("$12456.95"," 4 people","Bo oks", Price.new)
+    @input3 = Quote.new("$12456.95"," 4 people","Bo oks")
   end
 
   def test_that_input1_has_formatted_attr
@@ -27,6 +27,10 @@ class TestPackaging < MiniTest::Test
     assert_equal(12456.95, @input3.cost)
     assert_equal(4, @input3.people)
     assert_equal("books", @input3.product_type)
+  end
+
+  def test_that_input_has_base_markup_association
+    assert_equal(0.05, @input1.price.base_markup)
   end
 
 end
