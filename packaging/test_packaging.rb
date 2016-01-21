@@ -44,4 +44,12 @@ class TestPackaging < MiniTest::Test
     assert_equal(0.13, @output1.calculate_product_markup(@output1.quote.product_type))
   end
 
+  def test_that_drugs_has_proper_markup
+    assert_equal(0.075, @output2.calculate_product_markup(@output2.quote.product_type))
+  end
+
+  def test_that_books_has_proper_markup
+    assert_equal(0.00, @output3.calculate_product_markup(@output3.quote.product_type))
+  end
+
 end
