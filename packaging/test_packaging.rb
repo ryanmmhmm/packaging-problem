@@ -5,10 +5,13 @@ class TestPackaging < MiniTest::Test
 
   def setup
     @input1 = Quote.new("$1299.99","3 people","FooD")
+    @output1 = Price.new(@input1)
 
     @input2 = Quote.new("$5432.00","1  PERson","DRUGS")
+    @output2 = Price.new(@input2)
 
     @input3 = Quote.new("$12456.95"," 4 people","Bo oks")
+    @output3 = Price.new(@input3)
   end
 
   def test_that_input1_has_formatted_attr
@@ -30,11 +33,15 @@ class TestPackaging < MiniTest::Test
   end
 
   def test_that_input_has_base_markup_association
-    assert_equal(0.05, @input1.price.base_markup)
+    assert_equal(0.05, @output1.base_markup)
   end
 
   def test_that_input_has_manpower_markup_association
-    assert_equal(0.012, @input1.price.manpower_markup)
+    assert_equal(0.012, @output1.manpower_markup)
+  end
+
+  def test_that_food_has_proper_markup
+    assert_equal(0.13, @output1.calculate_product_markup(@output1.quote.product_type))
   end
 
 end
