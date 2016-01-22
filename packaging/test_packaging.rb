@@ -32,24 +32,28 @@ class TestPackaging < MiniTest::Test
     assert_equal("books", @input3.product_type)
   end
 
-  def test_that_input_has_base_markup_association
-    assert_equal(0.05, @output1.base_markup)
-  end
-
-  def test_that_input_has_manpower_markup_association
-    assert_equal(0.012, @output1.manpower_markup)
-  end
-
-  def test_that_food_has_proper_markup
+  def test_that_output_has_proper_product_markup
     assert_equal(0.13, @output1.calculate_product_markup(@output1.quote.product_type))
   end
 
-  def test_that_drugs_has_proper_markup
+  def test_that_drugs_has_proper_product_markup
     assert_equal(0.075, @output2.calculate_product_markup(@output2.quote.product_type))
   end
 
-  def test_that_books_has_proper_markup
+  def test_that_books_has_proper_product_markup
     assert_equal(0.00, @output3.calculate_product_markup(@output3.quote.product_type))
+  end
+
+  def test_that_total_price_output_is_correct_for_input1
+    assert_equal('$1591.58', @output1.formatted_total_price)
+  end
+
+  def test_that_total_price_output_is_correct_for_input2
+    assert_equal('$6199.81', @output2.formatted_total_price)
+  end
+
+  def test_that_total_price_output_is_correct_for_input3
+    assert_equal('$13707.63', @output3.formatted_total_price)
   end
 
 end
