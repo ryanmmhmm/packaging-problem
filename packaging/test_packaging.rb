@@ -15,12 +15,25 @@ class TestPackaging < MiniTest::Test
     @unformatted_input3 = { cost: "$12456.95", people: "4 people", product_type: "Bo oks" }
     @input3 = Quote.new(@unformatted_input3)
     @output3 = Price.new(@input3)
+
+    @unformatted_inputs = []
+    @unformatted_inputs << @unformatted_input1
+    @unformatted_inputs << @unformatted_input2
+    @unformatted_inputs << @unformatted_input3
   end
 
   def test_that_unformatted_inputs_are_hashes
-    assert_kind_of(Hash, @unformatted_input1)
-    assert_kind_of(Hash, @unformatted_input2)
-    assert_kind_of(Hash, @unformatted_input3)
+    @unformatted_inputs.each do |input|
+      assert_kind_of(Hash, input)
+    end
+  end
+
+  def test_that_unformatted_inputs_are_hashes_of_strings
+    @unformatted_inputs.each do |input|
+      input.each do |key, value|
+        assert_kind_of(String, value)
+      end
+    end
   end
 
   def test_that_input1_has_formatted_attr
