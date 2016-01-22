@@ -4,13 +4,16 @@ require 'packaging.rb'
 class TestPackaging < MiniTest::Test
 
   def setup
-    @input1 = Quote.new("$1299.99","3 people","FooD")
+    @unformatted_input1 = { cost: "$1299.99", people: "3 people", product_type: "FooD" }
+    @input1 = Quote.new(@unformatted_input1)
     @output1 = Price.new(@input1)
 
-    @input2 = Quote.new("$5432.00","1  PERson","DRUGS")
+    @unformatted_input2 = { cost: "$5432.00", people: "1  PERson", product_type: "DRUGS" }
+    @input2 = Quote.new(@unformatted_input2)
     @output2 = Price.new(@input2)
 
-    @input3 = Quote.new("$12456.95"," 4 people","Bo oks")
+    @unformatted_input3 = { cost: "$12456.95", people: "4 people", product_type: "Bo oks" }
+    @input3 = Quote.new(@unformatted_input3)
     @output3 = Price.new(@input3)
   end
 

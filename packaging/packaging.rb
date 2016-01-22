@@ -1,10 +1,11 @@
 class Quote
   attr_reader :cost, :people, :product_type
 
-  def initialize(cost, people, product_type)
-    @cost = cost
-    @people = people
-    @product_type = product_type
+  def initialize(unformatted_input)
+    @quote = unformatted_input
+    @cost = @quote[:cost]
+    @people = @quote[:people]
+    @product_type = @quote[:product_type]
 
     self.format_attributes
   end
