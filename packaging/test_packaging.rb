@@ -16,10 +16,16 @@ class TestPackaging < MiniTest::Test
     @input3 = Quote.new(@unformatted_input3)
     @output3 = Price.new(@input3)
 
+    @unformatted_input4 = { cost: "$25056.65", people: "84 people", product_type: "eLEctroniCS" }
+    @input4 = Quote.new(@unformatted_input4)
+    @output4 = Price.new(@input4)
+
     @unformatted_inputs = []
     @unformatted_inputs << @unformatted_input1
     @unformatted_inputs << @unformatted_input2
     @unformatted_inputs << @unformatted_input3
+    @unformatted_inputs << @unformatted_input4
+
   end
 
   def test_that_unformatted_inputs_are_hashes
@@ -54,7 +60,7 @@ class TestPackaging < MiniTest::Test
     assert_equal("books", @input3.product_type)
   end
 
-  def test_that_output_has_proper_product_markup
+  def test_that_food_has_proper_product_markup
     assert_equal(0.13, @output1.calculate_product_markup)
   end
 
@@ -64,6 +70,10 @@ class TestPackaging < MiniTest::Test
 
   def test_that_books_has_proper_product_markup
     assert_equal(0.00, @output3.calculate_product_markup)
+  end
+
+  def test_that_electronics_has_proper_product_markup
+    assert_equal(0.02, @output4.calculate_product_markup)
   end
 
   def test_that_total_price_output_is_correct_for_input1
