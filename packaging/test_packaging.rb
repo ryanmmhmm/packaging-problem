@@ -17,6 +17,12 @@ class TestPackaging < MiniTest::Test
     @output3 = Price.new(@input3)
   end
 
+  def test_that_unformatted_inputs_are_hashes
+    assert_kind_of(Hash, @unformatted_input1)
+    assert_kind_of(Hash, @unformatted_input2)
+    assert_kind_of(Hash, @unformatted_input3)
+  end
+
   def test_that_input1_has_formatted_attr
     assert_equal(1299.99, @input1.cost)
     assert_equal(3, @input1.people)
