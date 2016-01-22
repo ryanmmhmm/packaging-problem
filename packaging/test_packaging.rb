@@ -60,6 +60,12 @@ class TestPackaging < MiniTest::Test
     assert_equal("books", @input3.product_type)
   end
 
+  def test_that_input4_has_formatted_attr
+    assert_equal(25056.65, @input4.cost)
+    assert_equal(84, @input4.people)
+    assert_equal("electronics", @input4.product_type)
+  end
+
   def test_that_food_has_proper_product_markup
     assert_equal(0.13, @output1.calculate_product_markup)
   end
