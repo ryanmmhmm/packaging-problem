@@ -1,5 +1,5 @@
 class Quote
-  attr_accessor :cost, :people, :product_type
+  attr_reader :cost, :people, :product_type
 
   def initialize(cost, people, product_type)
     @cost = cost
