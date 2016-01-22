@@ -57,21 +57,21 @@ class Price
 
   attr_reader :quote, :base_markup, :manpower_markup_percent, :product_markup_percent, :total_price
 
-  def initialize(quote)
-    @quote = quote
-    @base_markup = calculate_base_markup(@quote.cost)
-    @product_markup_percent = calculate_product_markup(@quote.product_type)
-    @manpower_markup_percent = calculate_manpower_markup(@quote.people)
+  def initialize(order)
+    @order = order
+    @base_markup = calculate_base_markup
+    @product_markup_percent = calculate_product_markup
+    @manpower_markup_percent = calculate_manpower_markup
     @total_price = calculate_total_price.round(2)
   end
 
-  def calculate_base_markup(cost)
+  def calculate_base_markup
     base_markup_percent = 0.05
-    cost * (1 + base_markup_percent)
+    @order.cost * (1 + base_markup_percent)
   end
 
-  def calculate_product_markup(product_type)
-    case product_type
+  def calculate_product_markup
+    case @order.product_type
     when 'drugs'
       0.075
     when 'food'
@@ -83,9 +83,9 @@ class Price
     end
   end
 
-  def calculate_manpower_markup(people)
+  def calculate_manpower_markup
     manpower_markup_base_percent = 0.012
-    people * manpower_markup_base_percent
+    @order.people * manpower_markup_base_percent
   end
 
   def calculate_total_price
