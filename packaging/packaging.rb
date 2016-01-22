@@ -1,6 +1,5 @@
 class Quote
   attr_accessor :cost, :people, :product_type
-  attr_reader :price
 
   def initialize(cost, people, product_type)
     @cost = cost
@@ -56,26 +55,45 @@ end
 
 class Price
 
-  attr_reader :quote, :base_markup, :manpower_markup, :product_markup, :total_markup
+  attr_reader :quote, :base_markup, :manpower_markup_percent, :product_markup_percent, :total_price
 
   def initialize(quote)
     @quote = quote
-    @base_markup = 0.05
-    @manpower_markup = 0.012
-    @product_markup = 0
+    @base_markup = calculate_base_markup(@quote.cost)
+    @product_markup_percent = calculate_product_markup(@quote.product_type)
+    @manpower_markup_percent = calculate_manpower_markup(@quote.people)
+    @total_price = calculate_total_price.round(2)
+  end
+
+  def calculate_base_markup(cost)
+    base_markup_percent = 0.05
+    cost * (1 + base_markup_percent)
   end
 
   def calculate_product_markup(product_type)
     case product_type
     when 'drugs'
-      @product_markup = 0.075
+      0.075
     when 'food'
-      @product_markup = 0.13
+      0.13
     when 'electronics'
-      @product_markup = 0.02
+      0.02
     else
-      @product_markup = 0
+      0
     end
+  end
+
+  def calculate_manpower_markup(people)
+    manpower_markup_base_percent = 0.012
+    people * manpower_markup_base_percent
+  end
+
+  def calculate_total_price
+    @base_markup * (1 + @product_markup_percent + @manpower_markup_percent)
+  end
+
+  def formatted_total_price
+    @total_price.to_s.prepend('$')
   end
 
 end
