@@ -40,9 +40,9 @@ class Quote
   end
 
   def format_attributes
-    @cost = self.format_cost
-    @people = self.format_people
-    @product_type = self.format_product_type
+    @cost = format_cost
+    @people = format_people
+    @product_type = format_product_type
   end
 end
 
