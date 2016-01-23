@@ -1,3 +1,13 @@
+
+## Quote is a class that is designed to recieve input from one or many
+## sources.  It requires an object and recognizes Hashes with keys for
+## cost, people and product_type.  A Hash was chosen for input so that
+## the class can interface easily with JSON or other sources and will
+## only utilize the parts of the input data that it needs.
+##
+## The main purpose of this class is to parse and format input data
+## so that it can be used and manipulated by other classes.
+
 class Quote
   attr_reader :quote, :cost, :people, :product_type
 
@@ -36,6 +46,16 @@ class Quote
   end
 end
 
+## Price is a class that accepts pre-formatted input to be used with the
+## Quote class.  It accepts an object with attributes of cost, people and
+## product_type.
+##
+## The main purpose of this class is to calculate markup and the total
+## price on an order.
+##
+## Properly formatted output is available through the
+## formatted_total_price method.
+
 
 class Price
 
@@ -55,6 +75,9 @@ class Price
   end
 
   def calculate_product_markup
+
+    ## Case statement was used here because it remains extensible
+    ## without having to use class inheritance to define products.
     case @order.product_type
     when 'drugs'
       0.075
