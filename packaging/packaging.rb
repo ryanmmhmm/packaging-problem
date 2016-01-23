@@ -1,5 +1,5 @@
 class Quote
-  attr_reader :cost, :people, :product_type
+  attr_reader :quote, :cost, :people, :product_type
 
   def initialize(unformatted_input)
     @quote = unformatted_input
@@ -10,18 +10,13 @@ class Quote
     self.format_attributes
   end
 
-  def remove_dollar_sign(input)
-    if input[0] == "$"
-      input.slice!(0)
-    end
-
-    return input
-  end
-
   def format_cost
-    if @cost.is_a?(String)
-        @cost = remove_dollar_sign(@cost)
+    @cost.tr!(' ','')
+
+    if @cost[0] == "$"
+      @cost.slice!(0)
     end
+
     @cost = @cost.to_f
   end
 
@@ -56,7 +51,7 @@ end
 
 class Price
 
-  attr_reader :quote, :base_markup, :manpower_markup_percent, :product_markup_percent, :total_price
+  attr_reader :order, :base_markup, :manpower_markup_percent, :product_markup_percent, :total_price
 
   def initialize(order)
     @order = order
