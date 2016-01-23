@@ -20,11 +20,22 @@ class TestPackaging < MiniTest::Test
     @input4 = Quote.new(@unformatted_input4)
     @output4 = Price.new(@input4)
 
+    @unformatted_input5 = { cost: " $250.99 ", people: " 4 people ", product_type: " salsa " }
+    @input5 = Quote.new(@unformatted_input5)
+    @output5 = Price.new(@input5)
+
+    @unformatted_input6 = { cost: " 250.99 ", people: " 4 people ", product_type: " salsa " }
+    @input6 = Quote.new(@unformatted_input6)
+    @output6 = Price.new(@input6)
+
     @unformatted_inputs = []
     @unformatted_inputs << @unformatted_input1
     @unformatted_inputs << @unformatted_input2
     @unformatted_inputs << @unformatted_input3
     @unformatted_inputs << @unformatted_input4
+    @unformatted_inputs << @unformatted_input5
+    @unformatted_inputs << @unformatted_input6
+
 
   end
 
@@ -64,6 +75,16 @@ class TestPackaging < MiniTest::Test
     assert_equal(25056.65, @input4.cost)
     assert_equal(84, @input4.people)
     assert_equal("electronics", @input4.product_type)
+  end
+
+  def test_that_format_attributes_removes_whitespace
+    assert_equal(250.99, @input5.cost)
+    assert_equal(4, @input5.people)
+    assert_equal("salsa", @input5.product_type)
+  end
+
+  def test_that_cost_works_if_input_has_no_dollar_sign
+    assert_equal(250.99, @input5.cost)
   end
 
   def test_that_food_has_proper_product_markup
