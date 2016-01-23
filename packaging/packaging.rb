@@ -12,11 +12,7 @@ class Quote
 
   def format_cost
     @cost.tr!(' ','')
-
-    if @cost[0] == "$"
-      @cost.slice!(0)
-    end
-
+    @cost.slice!(0) if @cost[0] == "$"
     @cost = @cost.to_f
   end
 
