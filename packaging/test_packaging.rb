@@ -35,8 +35,6 @@ class TestPackaging < MiniTest::Test
     @unformatted_inputs << @unformatted_input4
     @unformatted_inputs << @unformatted_input5
     @unformatted_inputs << @unformatted_input6
-
-
   end
 
   def test_that_unformatted_inputs_are_hashes
