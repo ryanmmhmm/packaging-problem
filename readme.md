@@ -44,7 +44,7 @@ There are many ways to look at this problem and many different depths that you c
 
 I also wanted to work with some concepts as constraints to the problem:
 
-* Class.new() only accepts objects as input, not raw string values
+* Class.new() only accepts a single object as input, not raw string values
 * Data within the instances is protected from being changed from external sources
 * Data within the instances is queriable by other objects
 * Methods adhere to the SRP (Single Responsibility Principle)
