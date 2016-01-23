@@ -1,3 +1,4 @@
+class Quote
 
 ## Quote is a class that is designed to recieve input from one or many
 ## sources.  It requires an object and recognizes Hashes with keys for
@@ -8,7 +9,6 @@
 ## The main purpose of this class is to parse and format input data
 ## so that it can be used and manipulated by other classes.
 
-class Quote
   attr_reader :quote, :cost, :people, :product_type
 
   def initialize(unformatted_input)
@@ -46,6 +46,9 @@ class Quote
   end
 end
 
+
+class Price
+
 ## Price is a class that accepts pre-formatted input to be used with the
 ## Quote class.  It accepts an object with attributes of cost, people and
 ## product_type.
@@ -55,9 +58,6 @@ end
 ##
 ## Properly formatted output is available through the
 ## formatted_total_price method.
-
-
-class Price
 
   attr_reader :order, :base_markup, :manpower_markup_percent, :product_markup_percent, :total_price
 
