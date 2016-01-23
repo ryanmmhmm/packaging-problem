@@ -44,4 +44,5 @@ The output of this program will provide the user with a pricing estimate for the
 * The cost attribute will always be referenced as a floating point number with two decimals
 * The people attribute will always be referenced as an integer
 * The property_type attribute will always be all lowercase and will have no spaces
+* All strings within the program are reformatted to be all lowercase
 * properly formatted total price for each quote is available through the `formatted_total_price` method
