@@ -37,6 +37,26 @@ The output of this program will provide the user with a pricing estimate for the
 
 * Output 1: Price($)
 
+# Why did I do it this way?
+Good question!
+
+There are many ways to look at this problem and many different depths that you can take it to.  I chose to address this problem as if it were more a problem of handling data format rather than something more simple with broad assumptions.
+
+I also wanted to work with some concepts as constraints to the problem:
+
+* Class.new() only accepts objects as input, not raw string values
+* Data within the instances is protected from being changed from external sources
+* Data within the instances is queriable by other objects
+* Methods adhere to the SRP (Single Responsibility Principle)
+* Verbage for method calls on an object make sense when spoken out loud
+* Classes are open for extension, but closed for modification
+
+After a lot of refactoring, I thought it was best to accept data as a Hash of _String_ values.  Because of this, the Quote class can be utilized with many data sources assuming they have the same key names.  This data could come from a website form, an internal or external API.  Other keys in the input data would have no affect on the system.
+
+The Quote class is also designed around an internal standard for handling the formatted input data, which may be stored in a database or used elsewhere by other classes in the future.  Strings that are to be used/manipulated as numbers are formatted as such and stored within the instance of the object.
+
+The Price class integrates with the data formatting from the Quote class, and calculates the price of the Quote given to it.  Output from the Price class can be a number or a `formatted_total_price` depending on future needs.
+
 # Assumptions:
 * All currency is in CAD denoted by a $
 * All input is recieved in the form of a Hash will string values for corresponding keys and must be parsed by the program
