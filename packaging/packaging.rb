@@ -16,18 +16,10 @@ class Quote
     @cost = @cost.to_f
   end
 
-  def remove_letters(input)
-    if input.is_a?(String)
-      input.downcase!
-      input.tr!(' ','')
-      input.tr!('a-z','')
-    end
-
-    return input
-  end
-
   def format_people
-    @people = remove_letters(@people)
+    @people.downcase!
+    @people.tr!(' ','')
+    @people.tr!('a-z','')
     @people = @people.to_i
   end
 
